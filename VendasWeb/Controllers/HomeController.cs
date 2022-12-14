@@ -13,6 +13,13 @@ namespace VendasWeb.Controllers
             _logger = logger;
         }
 
+        public IActionResult About()
+        {
+            ViewData["Message"] = "Teste Asp Net";
+
+            return View();
+        }
+
         public IActionResult Index()
         {
             return View();
