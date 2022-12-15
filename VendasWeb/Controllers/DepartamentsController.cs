@@ -59,7 +59,7 @@ namespace VendasWeb.Controllers
             if (ModelState.IsValid)
             {
                 _context.Add(departament);
-                await _context.SaveChangesAsync();
+                await _context.SaveChangesAsync(); 
                 return RedirectToAction(nameof(Index));
             }
             return View(departament);

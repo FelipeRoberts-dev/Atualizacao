@@ -15,5 +15,6 @@ namespace VendasWeb.Data
         }
 
         public DbSet<VendasWeb.Models.Departament> Departament { get; set; } = default!;
+
     }
 }
