@@ -10,7 +10,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using VendasWeb.Data;
-
+using VendasWeb.Services;
 namespace VendaMvc_VS2019
 {
     public class Startup
@@ -31,6 +31,7 @@ namespace VendaMvc_VS2019
                     options.UseSqlServer(Configuration.GetConnectionString("T_DEPARTAMENTODadContext")));
 
             services.AddScoped<SeedingService>(); //Injenção de dependencia do meu objeto contexto com minha seeding.
+            services.AddScoped<VendedorService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
