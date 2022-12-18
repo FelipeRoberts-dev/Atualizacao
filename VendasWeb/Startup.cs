@@ -29,13 +29,16 @@ namespace VendaMvc_VS2019
 
             services.AddDbContext<T_DEPARTAMENTODadContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("T_DEPARTAMENTODadContext")));
+
+            services.AddScoped<SeedingService>(); //Injenção de dependencia do meu objeto contexto com minha seeding.
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, SeedingService seeding)
         {
             if (env.IsDevelopment())
             {
+                seeding.Seed();
                 app.UseDeveloperExceptionPage();
             }
             else
