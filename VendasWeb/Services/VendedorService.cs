@@ -16,5 +16,12 @@ namespace VendasWeb.Services
         {
             return _context.Vendedor.ToList();
         }
+
+        //Método para inserção de um vendedor
+        public void Insert(Vendedor obj)
+        {
+            _context.Add(obj);
+            _context.SaveChanges();
+        }
     }
 }

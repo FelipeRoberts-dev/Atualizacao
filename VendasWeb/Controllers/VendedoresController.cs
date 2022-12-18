@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using VendasWeb.Services;
+using VendasWeb.Models;
 namespace VendasWeb.Controllers
 {
     public class VendedoresController : Controller
@@ -15,6 +16,20 @@ namespace VendasWeb.Controllers
         {
             var vendedores = _vendedorService.FindAll();
             return View(vendedores);
+        }
+
+        public IActionResult Criar()
+        {
+            return View();
+        }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Criar(Vendedor vendedor)
+        {
+            _vendedorService.Insert(vendedor);
+            return RedirectToAction(nameof(Index));
         }
     }
 }
