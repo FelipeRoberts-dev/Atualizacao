@@ -10,6 +10,12 @@
         public int DepartamentoId { get; set; }
         public Departament Departamento { get; set; }
 
+
+        public string Aniversario { get; set; }
+        public string Salário { get; set; }
+
+
+
         public ICollection<RecordeVendedor> Vendas { get; set; } = new List<RecordeVendedor>();
 
         public Vendedor()

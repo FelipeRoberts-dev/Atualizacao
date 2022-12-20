@@ -32,6 +32,7 @@ namespace VendaMvc_VS2019
 
             services.AddScoped<SeedingService>(); //Injenção de dependencia do meu objeto contexto com minha seeding.
             services.AddScoped<VendedorService>();
+            services.AddScoped<DepartamentServices>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
