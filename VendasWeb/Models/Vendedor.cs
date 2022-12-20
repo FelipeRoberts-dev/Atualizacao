@@ -1,5 +1,4 @@
-﻿using VendasWeb.Models.Enums;
-namespace VendasWeb.Models
+﻿namespace VendasWeb.Models
 {
     public class Vendedor
     {
@@ -8,7 +7,7 @@ namespace VendasWeb.Models
         public string Email { get; set; }
         public DateTime DataAniversario { get; set; }
         public double BaseSalario { get; set; }
-
+        public int DepartamentoId { get; set; }
         public Departament Departamento { get; set; }
 
         public ICollection<RecordeVendedor> Vendas { get; set; } = new List<RecordeVendedor>();
@@ -32,7 +31,7 @@ namespace VendasWeb.Models
 
         public void AddVenda(RecordeVendedor venda)
         {
-            Vendas.Add(venda); 
+            Vendas.Add(venda);
         }
         //Metodo de remover uma venda na lista do vendedor.
 
@@ -43,7 +42,7 @@ namespace VendasWeb.Models
 
         //Metodo de retornar o total de venda a partir da minha lista de vendas.
 
-        public double TotalVenda(DateTime inicio , DateTime final)
+        public double TotalVenda(DateTime inicio, DateTime final)
         {
             return Vendas.Where(vendas => vendas.Data >= inicio && vendas.Data <= final).Sum(vendas => vendas.Quantia);
         }
